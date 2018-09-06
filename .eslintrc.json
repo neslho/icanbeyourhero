@@ -1,0 +1,15 @@
+{
+ "env": {
+   "es6": true,
+   "browser": true
+ },
+ "extends": "airbnb",
+ "rules": {
+   "no-console": "off",
+   "no-unused-vars": ["warn", { "argsIgnorePattern": "res|next|^err" }],
+   "eol-last": "off",
+   "arrow-spacing": "off",
+   "quotes": "off",
+   "no-plusplus": "off"
+ }
+}

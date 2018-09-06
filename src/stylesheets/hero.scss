@@ -1,0 +1,38 @@
+@import "fluid-type";
+
+////////////////
+// Hero
+.rainbowBGAnimation {  }
+.hero { height: 100vh; background:url('../images/enrique-iglesias.jpg') no-repeat center center; background-size: auto 100vh;  color:#fff;
+  &:before { background: linear-gradient(230deg, #1ddde8, #2388e8, #2b1de8, #781de8, #ae1de8, #dd00f3, #ae1de8, #781de8, #2b1de8, #2388e8, #1ddde8); content:''; display:block; position:absolute; top:0; right:0; left:0; bottom:0; opacity:0.8; mix-blend-mode:exclusion; background-size: 900% 900%; animation: HeroAnimation 15s ease infinite; } // background: linear-gradient(230deg, #00ccff, #ff0300); background-size: 200% 200%;
+}
+// .hero-extra-img {  }
+.hero__inner { position:absolute; top:80px; right:80px; left:80px; bottom:80px; transform-style: preserve-3d; /* mix-blend-mode: luminosity;*/
+  &:before { content:''; display:block; position: absolute; top: 0; right: 0; left: 0; bottom: 0; background:url('../images/enrique-iglesias.jpg') center; opacity:0.4; background-size: auto 100vh; }
+}
+.hero__subtitle { width:100%; margin:0; position:absolute; top:50%; left:50%; margin-top:-5em; transform:translate(-50%) translateZ(25px); z-index: 1; font-family: 'Roboto', sans-serif; font-size: 0.85em; text-transform:uppercase; font-weight:normal; text-align: center; letter-spacing: 0.4em; }
+.hero__title { display:flex; align-items: center; position:absolute; top:-5px; left:10px; right:10px; bottom:-5px; margin:0; padding-top:35px; transform:translateZ(50px); font-family: 'Montserrat', sans-serif; font-weight:800; line-height: 1em; text-transform: uppercase; text-align: center; @include interpolate(font-size, 320px, 1400px, 15px, 90px); text-stroke: 1px #fff; -webkit-text-stroke: 1px #fff; text-fill-color: transparent; -webkit-text-fill-color: transparent; cursor:default;
+  &:after { content:''; display:block; position:absolute; top:0; right:0; left:0; bottom:0; border:6px solid #fff; pointer-events: none; opacity:0; transition:all 150ms ease-in-out; transition-delay: 300ms; transform:scale3d(0.98,0.98,1); }
+  &:hover {
+    &:after { transform:scale3d(1,1,1); opacity:1; }
+    .hero__title-link {
+      &:before { height:100%; }
+      &:after { transform: scale3d(1, 1, 1); opacity:1; }
+    }
+  }
+}
+.hero__title-link { text-decoration: none; display:inline-block; position: relative; top:-0.2em; z-index: 1; width:100%;
+  &:before { content: attr(data-hover); display:block; position: absolute; top: 0; left: 0; right:0; height:0; overflow: hidden; white-space: nowrap; -webkit-text-stroke: 0; text-stroke: 0; -webkit-text-fill-color: #fff; text-fill-color: #fff; color: #fff; transition: all 0.3s ease-in-out; }
+  &:after { content:''; display:block; position: absolute; bottom: -0.1em; left: 2em; right: 2em; height:1px; background:#fff; transform: scale3d(0.4, 1, 1); opacity:0; transition:all 250ms ease-in-out; transition-delay: 150ms; }
+}
+
+@media screen and (min-aspect-ratio: 1920/1080) {
+    .hero,
+    .hero__inner:before { background-size: 100vw auto; }
+}
+
+@keyframes HeroAnimation {
+    0%{ background-position:0% 82%; }
+    50%{ background-position:100% 19%; }
+    100%{ background-position:0% 82%; }
+}
